@@ -1,0 +1,105 @@
+﻿@model UCTprojecthub.Models.Topic
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background: linear-gradient(90deg, rgba(68,58,241,1) 0%, rgba(94,94,228,1) 41%, rgba(122,131,233,1) 100%, rgba(13,189,255,1) 100%);
+    }
+
+
+    h1 {
+        color: black;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    h2 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 27px;
+    }
+
+    h3 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 16px;
+    }
+
+    table {
+        background-color: rgb(21,76,131);
+        color: white;
+        font-size: 16pt;
+        text-align: center;
+    }
+
+    tr {
+        color: white;
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    td {
+        color: white;
+        font-size: 14pt;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>Create</h1>
+
+    <h4>Topic</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="isChosen" /> @Html.DisplayNameFor(model => model.isChosen)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateCreated" class="control-label"></label>
+                    <input asp-for="DateCreated" class="form-control" />
+                    <span asp-validation-for="DateCreated" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateUpdated" class="control-label"></label>
+                    <input asp-for="DateUpdated" class="form-control" />
+                    <span asp-validation-for="DateUpdated" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ThemeId" class="control-label"></label>
+                    <select asp-for="ThemeId" class="form-control" asp-items="ViewBag.ThemeId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

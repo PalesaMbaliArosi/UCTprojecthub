@@ -1,0 +1,92 @@
+﻿@using UCTprojecthub.Areas.Identity.Data
+@model IEnumerable<UCTprojecthubUser>
+
+
+<style>
+    body {
+        background: linear-gradient(90deg, rgba(68,58,241,1) 0%, rgba(94,94,228,1) 41%, rgba(122,131,233,1) 100%, rgba(13,189,255,1) 100%);
+    }
+
+    .column {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    h1 {
+        color: black;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    h2 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 27px;
+    }
+
+    h3 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 16px;
+    }
+
+    table {
+        background-color:  beige;
+        color : black;
+        font-size : 16pt;
+        text-align : center;
+    }
+    tr {
+        color: black;
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    td {
+        color: black ;
+        font-size: 16pt;
+        text-align: center;
+    }
+</style>
+
+
+<body>
+    <h1>Students and Mentors</h1>
+    <hr />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Student Number</th>
+                <th scope="col">Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <th scope="row">@user.Id</th>
+                    <td>@user.FirstName</td>
+                    <td>@user.LastName</td>
+                    <td>@user.Email</td>
+                    <td>@user.StudentNumber</td>
+                    <
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

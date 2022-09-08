@@ -1,0 +1,120 @@
+﻿@model IEnumerable<UCTprojecthub.Models.Topic>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        background: linear-gradient(90deg, rgba(68,58,241,1) 0%, rgba(94,94,228,1) 41%, rgba(122,131,233,1) 100%, rgba(13,189,255,1) 100%);
+    }
+
+    h1 {
+        color: black;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    h2 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 27px;
+    }
+
+    h3 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 16px;
+    }
+
+    table {
+        background-color: rgb(21,76,131);
+        color: white;
+        font-size: 16pt;
+        text-align: center;
+    }
+
+    tr {
+        color: white;
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    td {
+        color: white;
+        font-size: 14pt;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>Index</h1>
+
+    @if (User.IsInRole("Mentor"))
+    {
+        <p>
+            <a asp-action="Create">Create New</a>
+        </p>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.isChosen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateCreated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateUpdated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Theme)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.isChosen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateUpdated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Theme.Description)
+                    </td>
+                    <td>
+                        @if (User.IsInRole("Mentor"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        }
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Select" asp-route-id="@item.Id">Select</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>

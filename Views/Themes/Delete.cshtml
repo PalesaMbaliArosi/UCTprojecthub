@@ -1,0 +1,100 @@
+﻿@model UCTprojecthub.Models.Theme
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background: linear-gradient(90deg, rgba(68,58,241,1) 0%, rgba(94,94,228,1) 41%, rgba(122,131,233,1) 100%, rgba(13,189,255,1) 100%);
+    }
+
+    h1 {
+        color: black;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    h2 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 27px;
+    }
+
+    h3 {
+        color: white;
+        font-family: Verdana, Arial, helvetica, Geneva, sans-serif;
+        font-size: 16px;
+    }
+
+    table {
+        background-color: rgb(21,76,131);
+        color: white;
+        font-size: 16pt;
+        text-align: center;
+    }
+
+    tr {
+        color: white;
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    td {
+        color: white;
+        font-size: 16pt;
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <h1>Delete</h1>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Theme</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateCreated)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DateUpdated)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DateUpdated)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.StudentCount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.StudentCount)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+
+</body>
